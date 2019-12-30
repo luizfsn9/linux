@@ -1,0 +1,36 @@
+How to install Install MariaDB 10.2 Centos 7
+
+Step
+
+Installing Maria DB 10.2
+
+# nano /etc/yum.repos.d/mariadb.repo
+
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.2/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+
+# yum clean all
+# yum install MariaDB-client MariaDB-server
+
+
+enable
+# systemctl enable mariadb
+# systemctl start mariadb
+
+Maria DB root user password
+# mysql_secure_installation
+
+Maria DB ports to allow from Firewall
+# firewall-cmd –permanent –add-services=mysql
+# firewall-cmd –permanent –add-port=3306/tcp
+# firewall-cmd –reload
+
+Testing the connection to the Maria DB
+
+# mysql -u root -p
+enter password:
+
+
