@@ -1,0 +1,22 @@
+How to install Cockpit on CentOS 7
+
+Install cockpit:
+
+# yum install cockpit
+# rpm -qa | grep cockpit
+
+Enable cockpit:
+
+# systemctl enable  --now cockpit.socket
+# systemctl start cockpit
+# systemctl status cockpit
+
+Open the firewall if necessary:
+
+# sudo firewall-cmd  --add-service=cockpit
+# sudo firewall-cmd  --permanent  --zone=public  --add-service=cockpit
+# sudo firewall-cmd  --reload 
+
+The installation of Cockpit is now complete, URL:
+
+http://ip:9090
