@@ -4,8 +4,8 @@ Protegendo de grub e selinux
 Remoção de segurança padrão (SeLinux e Firewall):
 
 	# systemctl disable firewalld
-# systemctl stop firewalld
-# systemctl status firewalld
+	# systemctl stop firewalld
+	# systemctl status firewalld
 	
 Edite o arquivo “/etc/sysconfig/selinux”:
 
@@ -27,7 +27,7 @@ Agora, rode os seguintes comandos:
 
 
 	# grub2-mkconfig -o /boot/grub2/grub.cfg
-# reboot
+	# reboot
 
 Para instalar as atualizações de segurança do sistema, rode o comando abaixo:
 
