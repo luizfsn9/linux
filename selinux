@@ -1,0 +1,34 @@
+Protegendo de grub e selinux
+	
+
+Remoção de segurança padrão (SeLinux e Firewall):
+
+	# systemctl disable firewalld
+# systemctl stop firewalld
+# systemctl status firewalld
+	
+Edite o arquivo “/etc/sysconfig/selinux”:
+
+	# nano /etc/sysconfig/selinux
+
+Na linha que começa com “SELINUX”, altere para “disabled”:
+
+	SELINUX=disabled
+
+Para remover o splash screen, edite o arquivo “/etc/default/grub”:
+
+	# vim /etc/default/grub
+
+Na linha que começa com “GRUB_CMDLINE_LINUX”, remova a palavra “rhgb”, deixando-a assim:
+
+	GRUB_CMDLINE_LINUX="crashkernel=auto quiet"
+
+Agora, rode os seguintes comandos:
+
+
+	# grub2-mkconfig -o /boot/grub2/grub.cfg
+# reboot
+
+Para instalar as atualizações de segurança do sistema, rode o comando abaixo:
+
+	# yum -y update
